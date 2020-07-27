@@ -1,0 +1,39 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend for project slvsFinanceManager with node.js express and typescript",
+  "main": "server/index.js",
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slavo775/slvsFinanceManager.git"
+  },
+  "keywords": [
+    "finance",
+    "financial",
+    "manager",
+    "slvs",
+    "slvsFinanceManager",
+    "personalManager"
+  ],
+  "author": "Slavomir Sedlak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Slavo775/slvsFinanceManager/issues"
+  },
+  "homepage": "https://github.com/Slavo775/slvsFinanceManager#readme",
+  "dependencies": {
+    "@types/express": "^4.17.7",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.7"
+  }
+}
