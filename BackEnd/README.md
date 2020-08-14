@@ -11,6 +11,7 @@ project use node.js, express, typescript is API for frontEnd slvsFinanceManager
 #.env must contain
 `PORT`
 `MONGO_DB_URL`
+and its locate in src/.env
 
 # run mongo db dev
 ## mongo db on docker
