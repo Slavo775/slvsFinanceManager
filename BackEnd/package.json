@@ -2,13 +2,14 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "backend for project slvsFinanceManager with node.js express and typescript",
-  "main": "server/index.js",
+  "main": "src/server/index.js",
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "node .",
-    "test": "jest"
+    "start": "env-cmd -f ./src/.env nodemon --watch src/**/*.ts --ignore src/**/*.spec.ts --exec ./src/server/index.js",
+    "test": "jest",
+    "standard": "ts-standard --fix"
   },
   "repository": {
     "type": "git",
@@ -35,15 +36,26 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "helmet": "^4.0.0"
+    "helmet": "^4.0.0",
+    "mongoose": "^5.9.29",
+    "ts-mongoose": "0.0.21"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
     "ts-loader": "^8.0.2",
+    "ts-standard": "^9.0.0",
     "tslint": "^6.1.2",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^2.5.1"
+  },
+  "ts-standard": {
+    "ignore": [
+      "node_modules",
+      "src/**/*.js"
+    ]
   }
 }

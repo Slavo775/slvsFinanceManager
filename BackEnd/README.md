@@ -10,3 +10,15 @@ project use node.js, express, typescript is API for frontEnd slvsFinanceManager
  server is available on http://localhost:3000
 #.env must contain
 `PORT`
+`MONGO_DB_URL`
+
+# run mongo db dev
+## mongo db on docker
+### create docker volume
+`docker volume create --name=mongodata`
+### run image
+`docker run --name mongodb -v mongodata:/data/db -d -p 27017:27017 mongo`
+### stop image
+`docker stop mongodb`
+### remove image
+`docker rm mongodb`
