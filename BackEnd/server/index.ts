@@ -1,13 +1,18 @@
-import express from 'express';
+import app from './app'
+import * as dotenv from 'dotenv';
+import chalk from 'chalk';
 
-// Create new express app instance
-const app: express.Application = express();
+// inicialize .env file
+dotenv.config();
+if (!process.env.PORT) {
+   // tslint:disable-next-line:no-console
+   console.error(chalk.black.bgRed.bold('Port is not defined in .env file!'));
+   process.exit(1 as any);
+}
+// get port for app
+const PORT: number = parseInt(process.env.PORT as string, 10);
 
-app.get('/', (req, res) => {
-    res.send('Welcome to slvs personal financial manager!')
-});
-
-app.listen('3000', () => {
+app.listen(PORT, () => {
     // tslint:disable-next-line:no-console
-   console.log('API is listening on port 3000!')
+   console.log(`API is listening on port ${PORT}!`)
 });

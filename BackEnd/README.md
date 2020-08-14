@@ -8,3 +8,5 @@ project use node.js, express, typescript is API for frontEnd slvsFinanceManager
 #For run server
 `npm run start`
  server is available on http://localhost:3000
+#.env must contain
+`PORT`
