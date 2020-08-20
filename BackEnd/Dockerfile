@@ -1,6 +1,5 @@
-FROM alpine:latest
+FROM alpine:latest AS node
 RUN apk add --no-cache nodejs npm
-
 
 WORKDIR /app
 
@@ -9,8 +8,8 @@ COPY . /app
 
 RUN npm install
 
-EXPOSE 7000
-
+EXPOSE 27017
+CMD ["sleep", "10"]
 ENTRYPOINT [ "npm" ]
 
-CMD [ "start" ]
+CMD [ "run", "start:dev" ]

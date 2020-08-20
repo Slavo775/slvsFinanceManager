@@ -1,0 +1,10 @@
+version: "2"
+options:
+  compose-dev-file-path: './docker-compose.yml'
+  unison_image: 'eugenmayer/unison:2.51.2.2'
+  verbose: false
+syncs:
+  node-server-sync:
+    src: './'
+    sync_strategy: 'unison'
+    sync_args: '-prefer newer -copyonconflict'

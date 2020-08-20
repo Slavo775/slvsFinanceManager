@@ -1,0 +1,23 @@
+version: "3.7"
+
+volumes:
+  node-server-sync:
+    external: true
+services:
+  mongodb:
+    image: mongo:latest
+    restart: always
+    ports:
+        - 27017:27017
+    volumes:
+        - ../dataMongoDb:/data/db
+  node-server:
+    build: .
+    restart: always
+    volumes:
+        - node-server-sync:/app:nocopy
+    ports:
+      - 7000:7001
+    depends_on:
+        - mongodb
+
