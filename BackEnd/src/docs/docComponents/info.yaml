@@ -1,0 +1,10 @@
+/info:
+    get:
+        description: Path with info message
+        produce:
+            - application/json
+        responses:
+            '200':
+                description: Get message with info about financial manager
+                schema: 
+                    type: object

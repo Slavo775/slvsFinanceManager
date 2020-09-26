@@ -37,22 +37,28 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "helmet": "^4.0.0",
-    "mongoose": "^5.9.29",
+    "helmet": "^4.1.0",
+    "mongoose": "^5.10.2",
     "ts-mongoose": "0.0.21"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.7.36",
+    "@types/swagger-jsdoc": "^3.0.2",
+    "@types/swagger-ui-express": "^4.1.2",
     "env-cmd": "^10.1.0",
-    "jest": "^26.1.0",
+    "jest": "^26.4.2",
     "nodemon": "^2.0.4",
-    "ts-loader": "^8.0.2",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui": "^3.33.0",
+    "swagger-ui-express": "^4.1.4",
+    "ts-loader": "^8.0.3",
     "ts-node": "^8.10.2",
     "ts-standard": "^9.0.0",
-    "tslint": "^6.1.2",
+    "tslint": "^6.1.3",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-node-externals": "^2.5.1"
+    "webpack-node-externals": "^2.5.2"
   },
   "ts-standard": {
     "ignore": [

@@ -5,7 +5,10 @@ import * as dotenv from 'dotenv';
 // tslint:disable-next-line
 const Test = require('../models/testModel');
 
-import '../db/mongoose.js'
+import dbConnect from '../db/mongoose'
+
+import infoRoutes from '../server/routes/info'
+import docRoutes from '../server/routes/doc'
 
 // Create new express app instance
 const app: express.Application = express();
@@ -13,27 +16,23 @@ const app: express.Application = express();
 // inicialize .env file
 dotenv.config();
 
+// connect to DB
+const mongoUrl: string = process.env.MONGO_DB_URL || ''
+dbConnect(mongoUrl)
+
 // set security headers
 app.use(helmet());
+
 // allows cors policy
 app.use(cors());
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Ono to zije!');
+  res.send('Ok!');
 });
 
-app.get('/test', async (req, res) => {
-    // const test = new Test();
-    // await test.save({testData: 'testData'});
-    // tslint:disable-next-line
-    res.status(200).send( await Test.find({testData: 'testData'}) );
-
-});
-
-app.get('/welcome', (req, res) => {
-  res.send('Welcome to slvs personal financial manager!')
-});
+app.use(infoRoutes)
+app.use(docRoutes)
 
 export default app
