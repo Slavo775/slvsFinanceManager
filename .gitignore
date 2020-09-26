@@ -227,3 +227,5 @@ dataMongoDb/WiredTiger.wt.221
 dataMongoDb/WiredTiger.wt.222
 dataMongoDb/WiredTiger.wt.223
 dataMongoDb/WiredTiger.wt.224
+BackEnd/Dockerfile
+BackEnd/docker-compose.yml
