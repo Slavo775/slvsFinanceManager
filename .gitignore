@@ -1,4 +1,5 @@
 dataMongoDb
+node_modules
 dataMongoDb/mongod.lock
 dataMongoDb/WiredTiger
 dataMongoDb/WiredTiger.lock
