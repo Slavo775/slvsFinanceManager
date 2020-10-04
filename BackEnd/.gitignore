@@ -2,5 +2,6 @@ node_modules
 .idea
 /server/*.js
 .env
-docker-compose
+docker-compose.yml
 Dockerfile
+docker-sync.yml
