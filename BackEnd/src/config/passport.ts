@@ -1,5 +1,6 @@
 import GoogleOAuth from 'passport-google-oauth20'
 import { PassportStatic } from 'passport'
+import UserController from '../controller/userController'
 
 const GoogleStrategy = GoogleOAuth.Strategy
 
@@ -13,5 +14,9 @@ export default function (passport: PassportStatic) {
         console.log(profile)
     }))
 
+    passport.serializeUser( (user: {id: string}, done) => {
+        done(null, user.id)
+    })
 
+    passport.deserializeUser(function (id, done){})
 }
