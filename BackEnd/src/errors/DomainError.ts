@@ -5,36 +5,50 @@ export default abstract class DomainError extends Error implements ErrorInterfac
 
     protected errorCode: number
 
+    protected httpCode: number = 400
+
     constructor(message: string, errorCode: number) {
         super(message)
 
         this.errorMessage = message
         this.errorCode = errorCode
 
+
         this.name = this.constructor.name
 
         Error.captureStackTrace(this, this.constructor)
     }
 
-    getErrorCode(): number
+    public getErrorCode(): number
     {
         return this.errorCode
     }
 
-    setErrorCode(errorCode: number): this
+    public setErrorCode(errorCode: number): this
     {
         this.errorCode = errorCode;
         return this
     }
 
-    getErrorMessage() :string
+    public getErrorMessage() :string
     {
         return this.errorMessage
     }
 
-    setErrorMessage(errorMessage: string): this
+    public setErrorMessage(errorMessage: string): this
     {
         this.errorMessage = errorMessage
+        return this
+    }
+
+    public getHttpCode(): number
+    {
+        return this.httpCode
+    }
+
+    public setHttpCode(httpCode: number): this
+    {
+        this.httpCode = httpCode
         return this
     }
 }

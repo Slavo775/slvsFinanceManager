@@ -1,9 +1,8 @@
 import DomainError from "./DomainError";
-import ErrorInterface from "./ErrorInterface";
 
 export default class ValidationError extends DomainError {
 
-    constructor (message: string, errorCode: number, httpCode: number = 400)
+    constructor (message: string, errorCode: number, httpCode: number = 401)
     {
         super(message, errorCode)
         this.setHttpCode(httpCode)

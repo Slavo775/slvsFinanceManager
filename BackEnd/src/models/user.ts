@@ -9,7 +9,7 @@ const userSchema = new Schema ({
         validate: Validator.isEmail
     },
     googleId: String,
-    mainCurrency: String,
+    mainCurrency: String
 })
 
 export default model("user", userSchema)

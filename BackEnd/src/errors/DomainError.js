@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class DomainError extends Error {
     constructor(message, errorCode) {
         super(message);
+        this.httpCode = 400;
         this.errorMessage = message;
         this.errorCode = errorCode;
         this.name = this.constructor.name;
@@ -20,6 +21,13 @@ class DomainError extends Error {
     }
     setErrorMessage(errorMessage) {
         this.errorMessage = errorMessage;
+        return this;
+    }
+    getHttpCode() {
+        return this.httpCode;
+    }
+    setHttpCode(httpCode) {
+        this.httpCode = httpCode;
         return this;
     }
 }

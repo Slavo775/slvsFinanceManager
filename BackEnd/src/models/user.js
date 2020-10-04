@@ -12,6 +12,6 @@ const userSchema = new mongoose_1.Schema({
         validate: Validator.isEmail
     },
     googleId: String,
-    mainCurrency: String,
+    mainCurrency: String
 });
 exports.default = mongoose_1.model("user", userSchema);
