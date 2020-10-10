@@ -26,9 +26,8 @@ const helmet_1 = __importDefault(require("helmet"));
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
 const dotenv = __importStar(require("dotenv"));
-const passport_1 = __importDefault(require("passport"));
-const passport_2 = __importDefault(require("../config/passport"));
 const express_session_1 = __importDefault(require("express-session"));
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
 // tslint:disable-next-line
 const Test = require('../models/testModel');
 const mongoose_1 = __importDefault(require("../db/mongoose"));
@@ -39,8 +38,6 @@ const userRoutes_1 = __importDefault(require("../server/routes/userRoutes"));
 const app = express_1.default();
 // inicialize .env file
 dotenv.config();
-// inicialize passport config
-passport_2.default(passport_1.default);
 // express session initialize
 app.use(express_session_1.default({
     secret: 'tralalala',
@@ -48,14 +45,12 @@ app.use(express_session_1.default({
     saveUninitialized: false,
     cookie: { secure: true }
 }));
-// passport middleware
-app.use(passport_1.default.initialize());
-app.use(passport_1.default.session());
 // connect to DB
 const mongoUrl = process.env.MONGO_DB_URL || '';
 mongoose_1.default(mongoUrl);
-// set security headers
+// security
 app.use(helmet_1.default());
+app.use(cookie_parser_1.default());
 // allows cors policy
 app.use(cors_1.default());
 app.use(express_1.default.json());

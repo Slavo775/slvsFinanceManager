@@ -22,8 +22,8 @@ class UserController {
                 throw new UnauthorizedError_1.default(errorCodes_1.EMPTY_USER_TOKEN_MESSAGE, errorCodes_1.EMPTY_USER_TOKEN_CODE);
             }
             const userService = new userService_1.default();
-            const jwtToken = yield userService.signIn(userToken);
-            return jwtToken;
+            const user = yield userService.signIn(userToken);
+            return user;
         });
     }
 }

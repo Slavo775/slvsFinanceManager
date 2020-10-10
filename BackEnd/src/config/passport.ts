@@ -17,6 +17,4 @@ export default function (passport: PassportStatic) {
     passport.serializeUser( (user: {id: string}, done) => {
         done(null, user.id)
     })
-
-    passport.deserializeUser(function (id, done){})
 }

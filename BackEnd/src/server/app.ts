@@ -2,9 +2,8 @@ import helmet from 'helmet';
 import cors from 'cors';
 import express from 'express';
 import * as dotenv from 'dotenv';
-import passport from 'passport'
-import passportConfig from '../config/passport'
 import expressSession from 'express-session'
+import cookieParser from 'cookie-parser'
 // tslint:disable-next-line
 const Test = require('../models/testModel');
 
@@ -19,8 +18,6 @@ const app: express.Application = express();
 
 // inicialize .env file
 dotenv.config();
-// inicialize passport config
-passportConfig(passport)
 
 // express session initialize
 app.use(expressSession({
@@ -30,16 +27,13 @@ app.use(expressSession({
   cookie: {secure: true}
 }))
 
-// passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
-
 // connect to DB
 const mongoUrl: string = process.env.MONGO_DB_URL || ''
 dbConnect(mongoUrl)
 
-// set security headers
+// security
 app.use(helmet());
+app.use(cookieParser());
 
 // allows cors policy
 app.use(cors());

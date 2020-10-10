@@ -1,5 +1,6 @@
-import {OAuth2Client, TokenPayload} from 'google-auth-library'
+import {OAuth2Client} from 'google-auth-library'
 import User from '../models/user'
+import { UserInterface } from '../models/user'
 import ConfigError from '../errors/ConfigError'
 import UnauthorizedError from '../errors/UnauthorizedError'
 import { GOOGLE_ID_CONFIG_CODE, GOOGLE_ID_CONFIG_MESSAGE, UNAUTHORIZE_BY_GOOGLE_CODE, UNAUTHORIZE_BY_GOOGLE_MESSAGE} from '../config/errorCodes'
@@ -7,15 +8,15 @@ import UserDomain from '../domain/users/UserDomain'
 
 export default class UserService {
 
-    public async signIn(userToken: string): Promise<string>
+    public async signIn(userToken: string): Promise<UserDomain>
     {
         const client: OAuth2Client = new OAuth2Client(userToken)
-        await this.verify(userToken, client)
+        const user = await this.verify(userToken, client)
 
-        return '';
+        return user;
     }
 
-    private async verify(token: string, client: OAuth2Client): Promise<void>
+    private async verify(token: string, client: OAuth2Client): Promise<UserDomain>
     {
         const googleClientId: string = process.env.GOOGLE_CLIENT_ID || '';
 
@@ -28,17 +29,31 @@ export default class UserService {
             audience: googleClientId
         })
         const payload = await ticket.getPayload() || undefined;
-        // tslint:disable-next-line
-        console.log(payload)
         if (!payload || !payload.sub) {
             throw new UnauthorizedError(UNAUTHORIZE_BY_GOOGLE_MESSAGE, UNAUTHORIZE_BY_GOOGLE_CODE)
         }
+        const googleId = payload.sub
+        const email = payload.email || ''
+        return await this.findUser({googleId, email});
     }
 
-    private async findUser(): Promise<UserDomain>
+
+
+    private async findUser(googlePayload: UserInterface): Promise<UserDomain>
     {
         const userDomain = new UserDomain()
-
+        const dbUser = await User.findOne({googleId: googlePayload.googleId});
+        if (!dbUser) {
+            const newUser = new User(googlePayload)
+            await newUser.save()
+            userDomain.setGoogleId(googlePayload.googleId)
+            userDomain.setEmail(googlePayload.email)
+            userDomain.setIdUser(newUser._id)
+        } else {
+            userDomain.setIdUser(dbUser._id)
+            userDomain.setGoogleId(googlePayload.googleId)
+            userDomain.setEmail(googlePayload.email)
+        }
         return userDomain;
     }
 }

@@ -23,5 +23,8 @@ function default_1(passport) {
         // tslint:disable-next-line
         console.log(profile);
     })));
+    passport.serializeUser((user, done) => {
+        done(null, user.id);
+    });
 }
 exports.default = default_1;
