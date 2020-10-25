@@ -6,7 +6,7 @@ const savesSchema = new mongoose_1.Schema({
     description: String,
     amount: String,
     category: { type: mongoose_1.Schema.Types.ObjectId, ref: 'category' },
-    user: { type: mongoose_1.Schema.Types.ObjectId, ref: 'user' },
+    idUser: { type: mongoose_1.Schema.Types.ObjectId, ref: 'user' },
     dateAdd: { type: Date, default: Date.now() }
 });
-exports.default = mongoose_1.model("category", savesSchema);
+exports.default = mongoose_1.model("save", savesSchema);

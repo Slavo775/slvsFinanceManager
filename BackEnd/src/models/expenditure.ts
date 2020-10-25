@@ -16,7 +16,10 @@ const expenditureSchema = new Schema({
         default: Date.now()
     },
     type: Number,
-    user: Schema.Types.ObjectId,
+    idUser: {
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    },
     dateAdd: {
         type: Date,
         default: Date.now()

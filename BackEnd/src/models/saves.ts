@@ -5,8 +5,8 @@ const savesSchema = new Schema({
     description: String,
     amount: String,
     category: {type: Schema.Types.ObjectId, ref: 'category'},
-    user: {type: Schema.Types.ObjectId, ref: 'user'},
+    idUser: {type: Schema.Types.ObjectId, ref: 'user'},
     dateAdd: {type: Date, default: Date.now()}
 })
 
-export default model("category", savesSchema)
+export default model("save", savesSchema)

@@ -17,7 +17,10 @@ const expenditureSchema = new mongoose_1.Schema({
         default: Date.now()
     },
     type: Number,
-    user: mongoose_1.Schema.Types.ObjectId,
+    idUser: {
+        type: mongoose_1.Schema.Types.ObjectId,
+        ref: 'user'
+    },
     dateAdd: {
         type: Date,
         default: Date.now()

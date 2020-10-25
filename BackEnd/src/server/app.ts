@@ -13,6 +13,9 @@ import infoRoutes from '../server/routes/info'
 import docRoutes from '../server/routes/doc'
 import userRoutes from '../server/routes/userRoutes'
 import categoriesRoutes from '../server/routes/categoriesRoutes'
+import expendituresRoutes from '../server/routes/expenditureRoutes'
+import receiptRoutes from '../server/routes/receiptsRoutes'
+import saveRoutes from '../server/routes/saveRoutes'
 
 // Create new express app instance
 const app: express.Application = express();
@@ -49,5 +52,8 @@ app.use(infoRoutes)
 app.use(docRoutes)
 app.use(userRoutes)
 app.use(categoriesRoutes)
+app.use(expendituresRoutes)
+app.use(receiptRoutes)
+app.use(saveRoutes)
 
 export default app

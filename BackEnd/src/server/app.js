@@ -35,6 +35,9 @@ const info_1 = __importDefault(require("../server/routes/info"));
 const doc_1 = __importDefault(require("../server/routes/doc"));
 const userRoutes_1 = __importDefault(require("../server/routes/userRoutes"));
 const categoriesRoutes_1 = __importDefault(require("../server/routes/categoriesRoutes"));
+const expenditureRoutes_1 = __importDefault(require("../server/routes/expenditureRoutes"));
+const receiptsRoutes_1 = __importDefault(require("../server/routes/receiptsRoutes"));
+const saveRoutes_1 = __importDefault(require("../server/routes/saveRoutes"));
 // Create new express app instance
 const app = express_1.default();
 // inicialize .env file
@@ -62,4 +65,7 @@ app.use(info_1.default);
 app.use(doc_1.default);
 app.use(userRoutes_1.default);
 app.use(categoriesRoutes_1.default);
+app.use(expenditureRoutes_1.default);
+app.use(receiptsRoutes_1.default);
+app.use(saveRoutes_1.default);
 exports.default = app;

@@ -14,6 +14,33 @@ export const ID_CATEGORY_MISSING_MESSAGE = 'Id category missing!'
 export const CATEGORY_OBJECT_MISSING_CODE = 104
 export const CATEGORY_OBJECT_MISSING_MESSAGE = 'Category data missing!'
 
+export const EXPENDITURE_REQUEST_CODE = 105
+export const EXPENDITURE_REQUEST_MESSAGE = 'Request does not have property'
+
+export const ID_EXPENDITURE_MISSING_CODE = 106
+export const ID_EXPENDITURE_MISSING_MESSAGE = 'Id Expenditure missing!'
+
+export const EXPENDITURE_OBJECT_MISSING_CODE = 107
+export const EXPENDITURE_OBJECT_MISSING_MESSAGE = 'Expenditure data missing!'
+
+export const RECEIPT_REQUEST_CODE = 108
+export const RECEIPT_REQUEST_MESSAGE = 'Request does not have property'
+
+export const ID_RECEIPT_MISSING_CODE = 109
+export const ID_RECEIPT_MISSING_MESSAGE = 'Id Receipt missing!'
+
+export const RECEIPT_OBJECT_MISSING_CODE = 110
+export const RECEIPT_OBJECT_MISSING_MESSAGE = 'Receipt data missing!'
+
+export const SAVE_REQUEST_CODE = 111
+export const SAVE_REQUEST_MESSAGE = 'Request does not have property'
+
+export const ID_SAVE_MISSING_CODE = 112
+export const ID_SAVE_MISSING_MESSAGE = 'Id save missing!'
+
+export const SAVE_OBJECT_MISSING_CODE = 113
+export const SAVE_OBJECT_MISSING_MESSAGE = 'Save data missing!'
+
 // 2xx Config errors
 export const GENERAL_CONFIG_CODE = 200
 export const GENERAL_CONFIG_ERROR_MESSAGE = 'Unknown config error!'
@@ -46,3 +73,12 @@ export const GENERAL_DATABASE_ERROR_MESSAGE = 'Unknown database error!'
 
 export const CATEGORY_NOT_FOUND_CODE = 401
 export const CATEGORY_NOT_FOUND_MESSAGE = 'Category not found!'
+
+export const EXPENDITURE_NOT_FOUND_CODE = 402
+export const EXPENDITURE_NOT_FOUND_MESSAGE = 'Receipt not found!'
+
+export const RECEIPT_NOT_FOUND_CODE = 403
+export const RECEIPT_NOT_FOUND_MESSAGE = 'Receipt not found!'
+
+export const SAVE_NOT_FOUND_CODE = 403
+export const SAVE_NOT_FOUND_MESSAGE = 'Receipt not found!'
