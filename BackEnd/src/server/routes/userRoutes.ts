@@ -6,7 +6,6 @@ import UserDomain from '../../domain/users/UserDomain'
 import Authorization from '../../middlewares/authMiddleware'
 
 const router: Router = Router()
-
 router.post('/user/google-sign-in', async (req: Request, res: Response) => {
     try {
         const userIdToken = req.body.userToken
@@ -27,7 +26,6 @@ router.post('/user/google-sign-in', async (req: Request, res: Response) => {
         }
         res.status(401).send(GENERAL_UNAUTHORIZE_MESSAGE)
     }
-
 })
 
 router.get('/user/check', Authorization, (req: Request, res: Response) => {

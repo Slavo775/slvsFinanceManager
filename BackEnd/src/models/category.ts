@@ -30,4 +30,17 @@ const categorySchema = new Schema({
     type: Number
 })
 
+// delete user sensitive information
+categorySchema.methods.toJSON = function () {
+    const category = this
+    const categoryObject = category.toObject()
+
+    delete categoryObject.idUser
+    delete categoryObject.__v
+    delete categoryObject.type
+    delete categoryObject.isDefault
+    delete categoryObject.deleted
+    return categoryObject
+  }
+
 export default model("category", categorySchema)

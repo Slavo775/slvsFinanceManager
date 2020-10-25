@@ -34,6 +34,7 @@ const mongoose_1 = __importDefault(require("../db/mongoose"));
 const info_1 = __importDefault(require("../server/routes/info"));
 const doc_1 = __importDefault(require("../server/routes/doc"));
 const userRoutes_1 = __importDefault(require("../server/routes/userRoutes"));
+const categoriesRoutes_1 = __importDefault(require("../server/routes/categoriesRoutes"));
 // Create new express app instance
 const app = express_1.default();
 // inicialize .env file
@@ -60,4 +61,5 @@ app.get('/', (req, res) => {
 app.use(info_1.default);
 app.use(doc_1.default);
 app.use(userRoutes_1.default);
+app.use(categoriesRoutes_1.default);
 exports.default = app;

@@ -12,6 +12,7 @@ import dbConnect from '../db/mongoose'
 import infoRoutes from '../server/routes/info'
 import docRoutes from '../server/routes/doc'
 import userRoutes from '../server/routes/userRoutes'
+import categoriesRoutes from '../server/routes/categoriesRoutes'
 
 // Create new express app instance
 const app: express.Application = express();
@@ -47,5 +48,6 @@ app.get('/', (req, res) => {
 app.use(infoRoutes)
 app.use(docRoutes)
 app.use(userRoutes)
+app.use(categoriesRoutes)
 
 export default app
