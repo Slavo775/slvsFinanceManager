@@ -47,7 +47,7 @@
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^2.0.0",
     "ts-mongoose": "0.0.21",
-    "validator": "^13.1.17"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
