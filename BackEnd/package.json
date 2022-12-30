@@ -62,7 +62,7 @@
     "jest": "^26.4.2",
     "nodemon": "^2.0.4",
     "swagger-jsdoc": "^4.0.0",
-    "swagger-ui": "^3.33.0",
+    "swagger-ui": "^3.52.5",
     "swagger-ui-express": "^4.1.4",
     "ts-loader": "^8.0.3",
     "ts-node": "^8.10.2",
